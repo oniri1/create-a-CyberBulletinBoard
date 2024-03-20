@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="cyber_board.css" />
+    <link rel="stylesheet" href="cyber_board_posting.css" />
   </head>
   <body>
     <div>
@@ -33,7 +34,7 @@
           <div id="fillter-boxs">
             <div id="fillter-box1">
               <div id="line-boxs">
-                <div class="fillter-box" id="left-none">전부</div>
+                <div class="fillter-box rock-on" id="left-none">전부</div>
                 <div class="fillter-box">공격적</div>
                 <div class="fillter-box">중립적</div>
                 <div class="fillter-box">평화적</div>
@@ -59,6 +60,49 @@
         </div>
       </div>
     </div>
+    <!-- 포스팅 -->
+    <div class="text-root-box-p hide-p" id="smoke-p">
+      <div class="text-box-p" id="post-container-p">
+        <!-- 햄스터 이름 입력 칸 -->
+        <div id="input-name-p">
+          <div id="input-name-text-p" style="color: white">
+            제목
+            <input id="nameText-p" type="text" />
+          </div>
+        </div>
+        <!-- 햄스터 종류 선택 칸 -->
+        <div id="input-tag-p">
+          <div id="line-boxs-p">
+            <div class="fillter-box-p rock-on-p">공격적</div>
+            <div class="fillter-box-p">중립적</div>
+            <div class="fillter-box-p">평화적</div>
+          </div>
+        </div>
+        <!-- 사진 올리기 -->
+        <div id="input-img-p">
+          <input
+            id="inputImg-p"
+            type="file"
+            accept="image/*"
+            onchange="viewImg(this)"
+          />
+        </div>
+        <!-- 메모 칸 -->
+        <div id="input-text-p">
+          <div id="input-explan-text-p" style="color: white">
+            내용
+            <input id="explanText-p" type="text" />
+          </div>
+        </div>
+        <!-- cancel,next bt -->
+        <div id="btn-container-p">
+          <div id="cancel-p">취소하기</div>
+          <div id="next-p">게시하기</div>
+        </div>
+      </div>
+    </div>
+
     <script src="cyber_board.js"></script>
+    <script src="cyber_board_posting.js"></script>
   </body>
 </html>

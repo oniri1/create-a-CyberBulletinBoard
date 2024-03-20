@@ -94,11 +94,19 @@
   width: 45%;
   border-radius: 25px;
   background-color: aqua;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 /* 텍스트 중앙 맞추기 */
 
 .text-root-box-p {
+  position: fixed;
+  top: 0;
+
   display: flex;
   align-items: center;
   text-align: center;
@@ -117,4 +125,8 @@
 
 input {
   height: auto;
+}
+
+.hide-p {
+  visibility: hidden;
 }

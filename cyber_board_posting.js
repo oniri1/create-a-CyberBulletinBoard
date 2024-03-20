@@ -1,5 +1,28 @@
+//다음 버튼
 document.getElementById("next-p").onclick = (e) => {
+  //제목
   console.log(document.getElementById("nameText-p").value);
+
+  //내용
+  console.log(document.getElementById("explanText-p").value);
+
+  const container = document.getElementById("input-img-p");
+
+  console.log(container.children[1].src);
+
+  // 초기화
+  //제목
+  document.getElementById("nameText-p").value = null;
+  //내용
+  document.getElementById("explanText-p").value = null;
+  container.children[1].remove();
+};
+
+//취소하기 버튼
+document.getElementById("cancel-p").onclick = (e) => {
+  console.log("hi");
+
+  document.getElementById("smoke-p").classList.toggle("hide-p");
 };
 
 // check = (elem) => {
@@ -8,6 +31,7 @@ document.getElementById("next-p").onclick = (e) => {
 //   elem.value;
 // };
 
+// 태그
 document.getElementById("line-boxs-p").onclick = (e) => {
   document.getElementsByClassName("rock-on-p")[0].classList.remove("rock-on-p");
   e.target.classList.add("rock-on-p");
@@ -16,6 +40,8 @@ document.getElementById("line-boxs-p").onclick = (e) => {
 viewImg = (elem) => {
   // 파일 가져오기
   const file = elem.files[0];
+
+  console.log("file@@@@@@", file);
 
   // 파일의 이름을 찾을 수 있는 값
   // file.name;
