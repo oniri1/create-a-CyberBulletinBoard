@@ -1,0 +1,1 @@
+const fontTyping = 0;

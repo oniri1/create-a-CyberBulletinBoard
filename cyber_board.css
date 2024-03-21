@@ -53,7 +53,7 @@
   display: flex;
 }
 
-#ad1 {
+/* #ad1 {
   background: url(imgs/1.gif);
 }
 #ad2 {
@@ -64,15 +64,15 @@
 }
 #ad4 {
   background: url(imgs/4.gif);
-}
-#ad1,
+} */
+/* #ad1,
 #ad2,
 #ad3,
 #ad4 {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-}
+} */
 /* 여기까지 광고 */
 
 /* 필터 */
@@ -190,5 +190,36 @@
   background-color: gold;
 }
 .post {
-  height: 32px;
+  height: auto;
+  border-top: 2px solid gray;
+  display: flex;
+  border-bottom: 3px solid hotpink;
+}
+.pic-box {
+  width: 150px;
+
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.pic-name {
+  width: 150px;
+  height: auto;
+}
+
+.pic-img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+
+.pic-text {
+  width: auto;
+  height: auto;
+  padding: 5px;
 }
