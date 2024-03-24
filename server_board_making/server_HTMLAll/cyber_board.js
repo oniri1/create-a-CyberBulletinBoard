@@ -1,3 +1,4 @@
+// 게시글 클릭
 document.getElementById("post-btn").onclick = () => {
   console.log("a");
 

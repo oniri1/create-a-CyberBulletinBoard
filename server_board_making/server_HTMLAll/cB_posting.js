@@ -32,30 +32,7 @@ const poster = (rootId, name, tag, img, text) => {
   document.getElementById(rootId).appendChild(postDiv);
 };
 
-//다음 버튼
-document.getElementById("next-p").onclick = (e) => {
-  // const container = document.getElementById("input-img-p");
-  //제목
-  const name = document.getElementById("nameText-p").value;
-
-  //태그
-  const tagN = document.getElementsByClassName("rock-on-p")[0].innerText;
-
-  //imgsrc
-  const imgSrc = "none_img";
-  // if (container.children[1]) {
-  //   imgSrc = container.children[1].src;
-  // }
-
-  // console.log("img src@@@@@@@@@@", imgSrc);
-
-  //내용
-  const text = document.getElementById("explanText-p").value;
-
-  poster("post-list", name, tagN, imgSrc, text);
-
-  // 초기화
-
+const reSet = () => {
   //제목
   document.getElementById("nameText-p").value = null;
 
@@ -81,11 +58,49 @@ document.getElementById("next-p").onclick = (e) => {
   // }
 };
 
+const postList = [];
+
+//다음 버튼
+document.getElementById("next-p").onclick = (e) => {
+  // const container = document.getElementById("input-img-p");
+  //제목
+  const name = document.getElementById("nameText-p").value;
+
+  //태그
+  const tagN = document.getElementsByClassName("rock-on-p")[0].innerText;
+
+  //imgsrc
+  const imSr = "none_img";
+  // if (container.children[1]) {
+  //   imgSrc = container.children[1].src;
+  // }
+
+  // console.log("img src@@@@@@@@@@", imgSrc);
+
+  //내용
+  const text = document.getElementById("explanText-p").value;
+
+  const postArr = [];
+
+  postArr.push(name);
+  postArr.push(tagN);
+  postArr.push(imgSrc);
+  postArr.push(text);
+
+  postList.push(postArr);
+  // poster("post-list", name, tagN, imSr, text);
+
+  console.log(postList);
+  // 초기화
+  reSet();
+};
+
 //취소하기 버튼
 document.getElementById("cancel-p").onclick = (e) => {
-  console.log("hi");
+  console.log("hide");
 
   document.getElementById("smoke-p").classList.toggle("hide-p");
+  reSet();
 };
 
 // check = (elem) => {
@@ -100,6 +115,7 @@ document.getElementById("line-boxs-p").onclick = (e) => {
   e.target.classList.add("rock-on-p");
 };
 
+//img
 const viewImg = (elem) => {
   // 파일 가져오기
   const file = elem.files[0];

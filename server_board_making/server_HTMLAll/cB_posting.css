@@ -94,9 +94,20 @@
   justify-content: space-evenly;
 }
 #cancel-p,
-#next-p {
+#next-p,
+.form-p {
   height: 80%;
   width: 45%;
+  border-radius: 25px;
+  background-color: aqua;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+#post-bt-p {
   border-radius: 25px;
   background-color: aqua;
 
