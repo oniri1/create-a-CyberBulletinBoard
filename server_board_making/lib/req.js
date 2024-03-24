@@ -27,16 +27,22 @@ const parseBody = (str) => {
   const bodyArr = str.split("&");
 
   bodyArr.forEach((item) => {
+    console.log("req30줄", item);
+    item = item.replaceAll("+", " ");
+    console.log("리플@@@@", item);
     const [name, value] = item.split("=");
     body[name] = decodeURI(value);
   });
 
-  console.log("req.js 31번 째 줄", body);
+  console.log("req.js 34번 째 줄", body);
   return body;
 };
 
 const makeReq = (data) => {
   const tempStr = data.toString();
+
+  console.log(tempStr);
+
   const [headerStr, bodyStr] = tempStr.split("\r\n\r\n");
 
   // console.log(

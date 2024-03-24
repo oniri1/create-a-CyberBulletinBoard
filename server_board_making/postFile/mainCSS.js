@@ -23,8 +23,12 @@ module.exports = `* {
   /* 광고부터 포함 */
   
   #item-container {
-    min-height: 1000px;
+    min-height: 100%;
     background-color: rgba(0, 0, 0, 0.85);
+  }
+  form{
+    width: auto;
+    height: auto;
   }
   
   /* 광고 */

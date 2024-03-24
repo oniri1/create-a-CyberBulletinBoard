@@ -2,6 +2,7 @@ const postCSS = require("./postCSS");
 const postJs = require("./postJS");
 const mainCSS = require("./mainCSS");
 const mainJs = require("./mainJS");
+const postListMake = require("./postListMake");
 
 module.exports = `<html lang="en">
 <head>
@@ -88,55 +89,51 @@ module.exports = `<html lang="en">
   </div>
 </div>
 <!-- 포스팅 -->
-<div class="text-root-box-p hide-p" id="smoke-p">
-  <div class="text-box-p" id="post-container-p">
-    <!-- 햄스터 이름 입력 칸 -->
-    <div id="input-name-p">
-      <div id="input-name-text-p" style="color: white">
-        제목
-        <input id="nameText-p" type="text" />
+
+
+<form action="http://localhost:3000" method="post">
+  <div class="text-root-box-p hide-p" id="smoke-p">
+    <div class="text-box-p" id="post-container-p">
+      <!-- 햄스터 이름 입력 칸 -->
+      <div id="input-name-p">
+        <div id="input-name-text-p" style="color: white">
+          제목
+          <input id="nameText-p" type="text" name="name" placeholder="이름 입력"/>
+        </div>
       </div>
-    </div>
-    <!-- 햄스터 종류 선택 칸 -->
-    <div id="input-tag-p">
-      <div id="line-boxs-p">
-        <div class="fillter-box-p rock-on-p">공격적</div>
-        <div class="fillter-box-p">중립적</div>
-        <div class="fillter-box-p">평화적</div>
+      <!-- 햄스터 종류 선택 칸 -->
+      <div id="input-tag-p">
+        <input type="text" name="tagN" placeholder="공격적 중립적 평화적 중 하나를 입력하세요."/>
       </div>
-    </div>
-    <!-- 사진 올리기 -->
-    <div id="input-img-p">
-      <div style="height: auto; color: white">
-        나중에 사진 올리는 기능을 추가할 칸 입니다.
-        <!-- <input
-          id="inputImg-p"
-          type="file"
-          accept="image/*"
-          onchange="viewImg(this)"
-        /> -->
+      <!-- 사진 올리기 -->
+      <div id="input-img-p">
+        <div style="height: auto; color: white">
+          나중에 사진 올리는 기능을 추가할 칸 입니다.
+        </div>
+        <input style="display:none" type="text" name="imSr" placeholder="이미지" Value="none_img"/>
       </div>
-    </div>
-    <!-- 메모 칸 -->
-    <div id="input-text-p">
-      <div id="input-explan-text-p" style="color: white">
-        내용
-        <input id="explanText-p" type="text" />
+
+      <div id="input-text-p">
+        <div id="input-explan-text-p" style="color: white">
+          내용
+          <input id="explanText-p" type="text" name="text" placeholder="내용 입력"/>
+        </div>
       </div>
-    </div>
-    <!-- cancel,next bt -->
-    <div id="btn-container-p">
-      <div id="cancel-p">취소하기</div>
-      <div class = "form-p">
-        <form action="http://localhost:3000" method="post">
-         <button id="post-bt-p">게시하기</button>
-        </form>
+      <!-- cancel,next bt -->
+      <div id="btn-container-p">
+        <button type="reset" id="cancel-p">취소하기</button>
+        <button id="next-p">게시하기</button>
+
       </div>
     </div>
   </div>
-</div>
+</form>
+
+
+
 
   <script>${postJs}</script>
   <script>${mainJs}</script>
+  <script>${postListMake}</script>
 </body>
 </html>`;

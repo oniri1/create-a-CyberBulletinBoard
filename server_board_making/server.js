@@ -17,6 +17,7 @@ const getMessage = ({ header: { method, path }, body }) => {
     }
   } else if (method == "POST") {
     if (path == "/") {
+      console.log(body);
       users.push(body);
       message = redirect();
     }

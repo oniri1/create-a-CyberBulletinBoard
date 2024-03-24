@@ -84,7 +84,7 @@
       </div>
     </div>
     <!-- 포스팅 -->
-    <div class="text-root-box-p hide-p" id="smoke-p">
+    <div class="text-root-box-p" id="smoke-p">
       <div class="text-box-p" id="post-container-p">
         <!-- 햄스터 이름 입력 칸 -->
         <div id="input-name-p">
@@ -105,15 +105,9 @@
         <div id="input-img-p">
           <div style="height: auto; color: white">
             나중에 사진 올리는 기능을 추가할 칸 입니다.
-            <!-- <input
-              id="inputImg-p"
-              type="file"
-              accept="image/*"
-              onchange="viewImg(this)"
-            /> -->
           </div>
         </div>
-        <!-- 메모 칸 -->
+
         <div id="input-text-p">
           <div id="input-explan-text-p" style="color: white">
             내용
@@ -122,12 +116,8 @@
         </div>
         <!-- cancel,next bt -->
         <div id="btn-container-p">
-          <div id="cancel-p">취소하기</div>
-          <div class="form-p">
-            <form action="http://localhost:3000" method="post">
-              <button id="post-bt-p">게시하기</button>
-            </form>
-          </div>
+          <button type="reset" id="cancel-p">취소하기</button>
+          <button id="next-p">게시하기</button>
         </div>
       </div>
     </div>

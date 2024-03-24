@@ -84,7 +84,7 @@ document.getElementById("next-p").onclick = (e) => {
 
   postArr.push(name);
   postArr.push(tagN);
-  postArr.push(imgSrc);
+  postArr.push(imSr);
   postArr.push(text);
 
   postList.push(postArr);
