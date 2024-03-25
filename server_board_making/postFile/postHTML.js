@@ -3,6 +3,7 @@ const postJs = require("./postJS");
 const mainCSS = require("./mainCSS");
 const mainJs = require("./mainJS");
 const postListMake = require("./postListMake");
+const typingJs = require("./typingJs");
 
 module.exports = `<html lang="en">
 <head>
@@ -15,7 +16,7 @@ module.exports = `<html lang="en">
 <body>
 <div>
   <div id="header">
-    <div class="text-root-box">mega cute hamsters site!</div>
+    <div id="type1" class="text-root-box">mega cute hamsters site!</div>
   </div>
   <div id="menu-container">
     <!-- <div class="hamster class"><div></div></div>
@@ -135,5 +136,6 @@ module.exports = `<html lang="en">
   <script>${postJs}</script>
   <script>${mainJs}</script>
   <script>${postListMake}</script>
+  <script>${typingJs}</script>
 </body>
 </html>`;
