@@ -19,4 +19,16 @@ Location: /
 `;
 };
 
-module.exports = { makeResponse, redirect };
+const sendFile = (type, body) => {
+  const headerBuffer = Buffer.from(`${makeHeader(type, body.length)}
+
+`);
+  const tempBuffer = Buffer.concat(
+    //concat(버퍼[배열],길이)
+    [headerBuffer, body],
+    headerBuffer.length + body.length
+  );
+  return tempBuffer;
+};
+
+module.exports = { makeResponse, redirect, sendFile };

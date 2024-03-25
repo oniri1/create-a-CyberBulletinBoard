@@ -1,4 +1,4 @@
-module.exports = `* {
+* {
   margin: 0;
   box-sizing: border-box;
   width: 100%;
@@ -106,8 +106,6 @@ module.exports = `* {
   justify-content: center;
 }
 
-
-
 #post-bt-p {
   border-radius: 25px;
   background-color: aqua;
@@ -146,4 +144,4 @@ input {
 
 .hide-p {
   visibility: hidden;
-}`;
+}

@@ -1,4 +1,4 @@
-module.exports = `// 게시글 클릭
+// 게시글 클릭
 document.getElementById("post-btn").onclick = () => {
   console.log("a");
 
@@ -14,4 +14,3 @@ document.getElementById("fillter-box1").onclick = (e) => {
     e.target.classList.add("rock-on");
   }
 };
-`;

@@ -1,9 +1,25 @@
 const parseHeader = (str) => {
   const arr = str.split("\r\n");
   const [method, path, protocol] = arr[0].split(" ");
-  const temp = { method, path, protocol };
+  let tempIdx = path.indexOf("?");
 
-  console.log("req.js 6번 줄", temp);
+  // console.log("tempidx@@@@@@@@@@@", tempIdx);
+  if (tempIdx == -1) tempIdx = path.length;
+  const temp = {
+    method,
+    path: path.slice(0, tempIdx),
+    protocol,
+    objId: path.slice(tempIdx + 1),
+  };
+  console.log("req.js 14번 줄", temp);
+
+  if (path.indexOf(".jpg") > -1) {
+    temp.ext = "jpg";
+  }
+
+  if (path.indexOf(".png") > -1) {
+    temp.ext = "png";
+  }
 
   for (let i = 1; i < arr.length; ++i) {
     //arr[i]번째에서  ": "가 있는 위치를 찾는다.
@@ -34,14 +50,14 @@ const parseBody = (str) => {
     body[name] = decodeURI(value);
   });
 
-  console.log("req.js 34번 째 줄", body);
+  console.log("req.js 37번 째 줄", body);
   return body;
 };
 
 const makeReq = (data) => {
   const tempStr = data.toString();
 
-  console.log(tempStr);
+  // console.log("req 54번째 줄", tempStr);
 
   const [headerStr, bodyStr] = tempStr.split("\r\n\r\n");
 
