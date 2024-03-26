@@ -202,6 +202,7 @@ form {
 .pic-box {
   width: 150px;
 
+  pointer-events: none;
   margin-left: 20px;
   margin-right: 20px;
   display: flex;
@@ -226,6 +227,7 @@ form {
   width: auto;
   height: auto;
   padding: 5px;
+  pointer-events: none;
 }
 
 ul,

@@ -11,67 +11,87 @@ let postCount = 0;
 const users = [
   {
     id: postCount++,
-    name: "test1",
-    tagN: "공격적",
+    title: "test1",
+    createdAt: new Date().toLocaleString(),
     imSr: "none_img",
     text: "내용 없음1",
   },
   {
     id: postCount++,
-    name: "test2",
-    tagN: "공격적",
+    title: "test2",
+    createdAt: new Date().toLocaleString(),
     imSr: "none_img",
     text: "내용 없음2",
   },
   {
     id: postCount++,
-    name: "test3",
-    tagN: "중립적",
+    title: "test3",
+    createdAt: new Date().toLocaleString(),
     imSr: "none_img",
     text: "내용 없음3",
   },
   {
     id: postCount++,
-    name: "test4",
-    tagN: "평화적",
+    title: "test4",
+    createdAt: new Date().toLocaleString(),
     imSr: "none_img",
     text: "내용 없음4",
   },
   {
     id: postCount++,
-    name: "test5",
-    tagN: "중립적",
+    title: "test5",
+    createdAt: new Date().toLocaleString(),
     imSr: "none_img",
     text: "내용 없음5",
   },
   {
     id: postCount++,
-    name: "test6",
-    tagN: "평화적",
+    title: "test6",
+    createdAt: new Date().toLocaleString(),
     imSr: "none_img",
     text: "내용 없음6",
   },
   {
     id: postCount++,
-    name: "test7",
-    tagN: "중립적",
+    title: "test7",
+    createdAt: new Date().toLocaleString(),
     imSr: "none_img",
     text: "내용 없음7",
   },
   {
     id: postCount++,
-    name: "test8",
-    tagN: "공격적",
+    title: "test8",
+    createdAt: new Date().toLocaleString(),
     imSr: "none_img",
     text: "내용 없음8",
   },
 ];
 
+users.reverse();
+
 const getMessage = ({ header: { method, path, objId }, body }) => {
   let message = "";
 
   if (method == "GET") {
-    if (path == "/number") {
+    if (path == "/board") {
+      if (static["/board/"] != undefined) {
+        message = makeResponse(
+          "text/html",
+          fs.readFileSync(static["/board/"], {
+            encoding: "utf8",
+          })
+        );
+      }
+    } else if (path == "/write") {
+      if (static["/write/"] != undefined) {
+        message = makeResponse(
+          "text/html",
+          fs.readFileSync(static["/write/"], {
+            encoding: "utf8",
+          })
+        );
+      }
+    } else if (path == "/number") {
       message = makeResponse(
         "application/json",
         JSON.stringify(users.length / 4)
@@ -110,20 +130,31 @@ const getMessage = ({ header: { method, path, objId }, body }) => {
         JSON.stringify(
           users
             .slice((body.page - 1) * body.count, body.page * body.count)
-            .map((item, idx) => {
-              item.id = idx + (body.page - 1) * 4;
-              return item;
-            })
+            .map((item) => item)
         )
       );
     } else if (path == "/write") {
+      console.log(body);
       body.id = postCount++;
-      users.push(body);
+      body.createdAt = new Date().toLocaleString();
+      users.unshift(body);
       message = redirect();
+    } else if (path == "/board") {
+      users.forEach((item) => {
+        if (item["id"] == body.id) {
+          message = makeResponse(
+            "application/json",
+            JSON.stringify([
+              { id: item.id, title: item.title, text: item.text },
+            ])
+          );
+          // } else if (item["id"] == objId) {
+          //   message = makeResponse("application/json", JSON.stringify(item));
+        }
+      });
     }
   }
 
-  console.log("userssssssssssss", users);
   return message;
 };
 
@@ -131,6 +162,7 @@ const server = net.createServer((client) => {
   client.on("data", (data) => {
     const req = makeReq(data);
     client.write(getMessage(req));
+    // console.log("userssssssssssss", users);
   });
 });
 

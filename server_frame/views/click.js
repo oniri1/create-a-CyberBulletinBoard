@@ -9,5 +9,5 @@ clicker.onclick = async (event) => {
 
   console.log(id);
 
-  location.href = `/open/?id=${id}`;
+  location.href = `/board/?id=${id}`;
 };

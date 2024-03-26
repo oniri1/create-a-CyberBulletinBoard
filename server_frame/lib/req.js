@@ -37,10 +37,13 @@ const parseBody = (str) => {
   // console.log("들어가기 전");
   if (str.length == 0) return {};
 
+  console.log(str);
   // console.log("들어간 후");
 
   const body = {};
   const bodyArr = str.split("&");
+
+  console.log("body@@@@@@@@@@", bodyArr);
 
   bodyArr.forEach((item) => {
     console.log("req30줄", item);

@@ -7,10 +7,10 @@ const reSet = () => {
   document.getElementById("line-boxs-p").children[0].classList.add("rock-on-p");
 };
 
-//다음 버튼
-document.getElementById("next-p").onclick = (e) => {
-  reSet();
-};
+// //다음 버튼
+// document.getElementById("next-p").onclick = (e) => {
+//   reSet();
+// };
 
 //취소하기 버튼
 document.getElementById("cancel-p").onclick = (e) => {

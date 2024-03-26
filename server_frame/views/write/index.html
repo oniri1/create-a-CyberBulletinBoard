@@ -145,18 +145,18 @@
               <input
                 id="nameText-p"
                 type="text"
-                name="name"
+                name="title"
                 placeholder="이름 입력"
               />
             </div>
           </div>
           <!-- 햄스터 종류 선택 칸 -->
           <div id="input-tag-p">
-            <input
+            <!-- <input
               type="text"
               name="tagN"
               placeholder="공격적 중립적 평화적 중 하나를 입력하세요."
-            />
+            /> -->
           </div>
           <!-- 사진 올리기 -->
           <div id="input-img-p">
@@ -191,60 +191,5 @@
         </div>
       </div>
     </form>
-
-    <script>
-      const poster = (rootId, name, tag, img, text) => {
-        const postDiv = document.createElement("div");
-        postDiv.classList.add("post");
-        const picBox = document.createElement("div");
-        picBox.classList.add("pic-box");
-        const picName = document.createElement("div");
-        picName.classList.add("pic-name");
-        picName.innerText = name;
-        const picImg = document.createElement("img");
-        picImg.classList.add("pic-img");
-        picImg.src = img;
-        if (img == undefined) {
-          picImg.alt = "이미지 없음";
-        } else {
-          picImg.alt = text;
-        }
-        picImg.dataset.keyname = tag;
-        const picText = document.createElement("div");
-        picText.classList.add("pic-text");
-        picText.innerText = text;
-        picBox.appendChild(picName);
-        picBox.appendChild(picImg);
-        postDiv.appendChild(picBox);
-        postDiv.appendChild(picText);
-        document.getElementById(rootId).appendChild(postDiv);
-      };
-
-      const reSet = () => {
-        document.getElementById("nameText-p").value = null;
-        document.getElementById("explanText-p").value = null;
-        document
-          .getElementsByClassName("rock-on-p")[0]
-          .classList.remove("rock-on-p");
-        document
-          .getElementById("line-boxs-p")
-          .children[0].classList.add("rock-on-p");
-      };
-
-      document.getElementById("next-p").onclick = (e) => {
-        reSet();
-      };
-
-      document.getElementById("cancel-p").onclick = (e) => {
-        document.getElementById("smoke-p").classList.toggle("hide-p");
-        reSet();
-      };
-      document.getElementById("line-boxs-p").onclick = (e) => {
-        document
-          .getElementsByClassName("rock-on-p")[0]
-          .classList.remove("rock-on-p");
-        e.target.classList.add("rock-on-p");
-      };
-    </script>
   </body>
 </html>

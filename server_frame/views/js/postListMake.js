@@ -7,7 +7,7 @@ const poster = (rootId, name, tag, img, text, idValue) => {
 
   const picName = document.createElement("div");
   picName.classList.add("pic-name");
-  picName.innerText = name;
+  picName.innerText = "title : " + name;
 
   const picImg = document.createElement("img");
   picImg.classList.add("pic-img");
@@ -16,13 +16,13 @@ const poster = (rootId, name, tag, img, text, idValue) => {
   if (img == undefined) {
     picImg.alt = "이미지 없음";
   } else {
-    picImg.alt = text;
+    picImg.alt = "Id :" + img;
   }
   picImg.dataset.keyname = tag;
 
   const picText = document.createElement("div");
   picText.classList.add("pic-text");
-  picText.innerText = text;
+  picText.innerText = "작성 일자 : " + text;
 
   picBox.appendChild(picName);
   picBox.appendChild(picImg);
@@ -54,7 +54,14 @@ const getUsers = async () => {
     const usersElem = document.getElementById("post-list");
     usersElem.innerHTML = "";
     userArr.forEach((item) => {
-      poster("post-list", item.name, item.tagN, item.imSr, item.text, item.id);
+      poster(
+        "post-list",
+        item.title,
+        item.createdAt,
+        item.id,
+        item.createdAt,
+        item.id
+      );
     });
   } catch (err) {
     console.error(err);
@@ -67,11 +74,11 @@ const getPage = async () => {
     const countRes = await fetch("http://localhost:3000/number", {
       mode: "no-cors",
     });
-    console.log(countRes);
+    // console.log(countRes);
     const countData = await countRes.text();
-    console.log(countData);
+    // console.log(countData);
     const pageCount = JSON.parse(countData);
-    console.log("pagecount@@@@@@@@@@", pageCount);
+    // console.log("pagecount@@@@@@@@@@", pageCount);
 
     const pagingElem = document.getElementById("paging");
 

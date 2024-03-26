@@ -18,7 +18,7 @@
 
       #post-id-o {
         height: 20%;
-        font-size: 7rem;
+        font-size: 4rem;
       }
       #post-name-o {
         height: 10%;
@@ -47,7 +47,7 @@
     <h5 id="post-text-o"></h5>
 
     <script>
-      const id = location.search.slice(4);
+      let id = location.search.slice(4);
 
       const itemGet = async () => {
         try {
@@ -61,11 +61,11 @@
           console.log(userArr);
 
           document.getElementById("post-id-o").innerText +=
-            userArr.id + 1 + "번째 게시글";
+            userArr.id + 1 + "번째 게시글 ID : " + userArr.id;
           document.getElementById("post-name-o").innerText +=
-            "사진 이름 : " + userArr.name;
+            "제목 : " + userArr.title;
           document.getElementById("post-tagN-o").innerText +=
-            "태그 : " + userArr.tagN;
+            "작성 시간 : " + userArr.createdAt;
           document.getElementById("post-imSr-o").innerText += userArr.imSr;
           document.getElementById("post-text-o").innerText +=
             "내용 : " + userArr.text;
